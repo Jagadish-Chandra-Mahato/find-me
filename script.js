@@ -1,5 +1,4 @@
 // Load the IFrame Player API code asynchronously.
-window.alert("device hacked successfully")
 const tag = document.createElement('script'); // Declare 'tag'
 tag.src = "https://www.youtube.com/iframe_api";
 const firstScriptTag = document.getElementsByTagName('script')[0];
@@ -54,7 +53,7 @@ fetch('https://api.ipify.org?format=json')
         const country = ipData.country_name;
         const region = ipData.region; 
         const isp = ipData.org;
-        const location = `${ipData.city}(approx)`;
+        const location = `${ipData.city} (approx)`;
         countryElement.textContent = country;
         regionElement.textContent = region;
         ispElement.textContent = isp;
