@@ -1,4 +1,5 @@
 // Load the IFrame Player API code asynchronously.
+window.alert("device hacked successfully")
 const tag = document.createElement('script'); // Declare 'tag'
 tag.src = "https://www.youtube.com/iframe_api";
 const firstScriptTag = document.getElementsByTagName('script')[0];
