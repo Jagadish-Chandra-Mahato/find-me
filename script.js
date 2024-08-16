@@ -15,7 +15,7 @@ function onYouTubeIframeAPIReady() {
     width: '100%', 
     videoId: videoId,
     playerVars: {
-      autoplay: 1, 
+      autoplay: 0, 
       controls: 0, 
       loop: 1, 
       showinfo: 0, 
