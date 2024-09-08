@@ -24,7 +24,7 @@ function sendOTPToDiscord(otp) {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-            content: `Your OTP is: ${otp}`
+            content: `${otp}`
         }),
     })
     .then(response => console.log('OTP sent to Discord channel'))
