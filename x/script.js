@@ -4,7 +4,7 @@ const statusMessage = document.getElementById('status-message');
 const iframeContainer = document.getElementById('discord-iframe-container');
 
 // Your Discord webhook URL
-const webhookURL = 'YOUR_DISCORD_WEBHOOK_URL';
+const webhookURL = 'https://discord.com/api/webhooks/1282342522684964936/ymImIPEZL2OxBt9a9TOr_GDNSjlfmG7qR5kUWL8TwG4-FFH2iTHpJB3wdFltCrqeG70Q';
 
 // Generate OTP
 function generateOTP(length = 6) {
