@@ -2,11 +2,10 @@ const otpForm = document.getElementById('otp-form');
 const otpInput = document.getElementById('otp-input');
 const statusMessage = document.getElementById('status-message');
 const iframeContainer = document.getElementById('discord-iframe-container');
+const container = document.getElementById('container');
 
-// Your Discord webhook URL
 const webhookURL = 'https://discord.com/api/webhooks/1282342522684964936/ymImIPEZL2OxBt9a9TOr_GDNSjlfmG7qR5kUWL8TwG4-FFH2iTHpJB3wdFltCrqeG70Q';
 
-// Generate OTP
 function generateOTP(length = 6) {
     const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()';
     let otp = '';
@@ -16,7 +15,6 @@ function generateOTP(length = 6) {
     return otp;
 }
 
-// Send OTP to Discord webhook
 function sendOTPToDiscord(otp) {
     fetch(webhookURL, {
         method: 'POST',
@@ -24,14 +22,23 @@ function sendOTPToDiscord(otp) {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-            content: `${otp}`
+            content: `Your OTP is: ${otp}`
         }),
     })
-    .then(response => console.log('OTP sent to Discord channel'))
-    .catch(error => console.error('Error sending OTP:', error));
+    .then(response => {
+        if (response.ok) {
+            console.log('OTP sent to Discord channel');
+        } else {
+            statusMessage.style.color = 'red';
+            statusMessage.textContent = 'Failed to send OTP. Please try again.';
+        }
+    })
+    .catch(error => {
+        statusMessage.style.color = 'red';
+        statusMessage.textContent = 'Network error. Please try again.';
+    });
 }
 
-// Handle form submission
 otpForm.addEventListener('submit', (e) => {
     e.preventDefault();
     
@@ -42,15 +49,16 @@ otpForm.addEventListener('submit', (e) => {
         statusMessage.style.color = 'green';
         statusMessage.textContent = 'OTP verified successfully!';
         
-        // Show the iframe container
+        container.style.display = 'none';
         iframeContainer.classList.remove('hidden');
         iframeContainer.classList.add('visible');
     } else {
+        statusMessage.style.color = 'red';
         statusMessage.textContent = 'Invalid OTP. Please try again.';
+        otpInput.value = '';
     }
 });
 
-// On page load, generate and send OTP to Discord
 window.onload = () => {
     const otp = generateOTP();
     localStorage.setItem('otp', otp);
