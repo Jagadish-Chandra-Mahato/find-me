@@ -17,6 +17,7 @@ body {
 
 .container {
     background-color: #1E1E1E; /* Darker container */
+    text-align: center;
     font-family: monospace;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Softer shadow */
